@@ -11,6 +11,9 @@ const routes: Routes = [
       {
         path:'petsinsertar',
         component: PetInsertarComponent,
+      },
+      {
+        path: 'edicion/:id',component:PetInsertarComponent //nueva ruta para editar
       }
     ]
   }

@@ -13,6 +13,11 @@
     <div>
       <button mat-raised-button color="warn" routerLink="/pets/petsinsertar"> nueva mascota</button>
     </div>
+    <!-- Añades el buscador -->
+    <mat-form-field>
+      <input  matInput (keyup)="filtrar($event)" placeholder="Buscar"/>
+    </mat-form-field>
+
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
       <!--- Note that these columns can be defined in any order.
@@ -40,6 +45,18 @@
       <ng-container matColumnDef="fecha">
         <th mat-header-cell *matHeaderCellDef> Fecha de Nacimiento </th>
         <td mat-cell *matCellDef="let element"> {{element.birthDatePet|date:'dd/MM/YYYY'}} </td>
+      </ng-container>
+
+      <!-- butones Column -->
+      <ng-container matColumnDef="acionED">
+        <th mat-header-cell *matHeaderCellDef> accio0neS </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="primary"
+          [routerLink]="['edicion',element.id]">
+
+          editar
+          </button>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

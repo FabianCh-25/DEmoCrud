@@ -26,4 +26,12 @@ export class PetService {
   setList(listaNueva: Pet[]){
     this.listaCambio.next(listaNueva);        //!tambien se agrega
   }
+
+  //!para actualizar necesitas traer x id y luego save new datos
+  listId(id: number){
+    return this.http.get<Pet>(`${this.url}/${id}`);
+  }
+  update(p:Pet){
+    return this.http.put(this.url+'/'+p.id,p)
+  }
 }
