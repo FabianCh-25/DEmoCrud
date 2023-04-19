@@ -13,7 +13,7 @@ import { PetService } from 'src/app/service/pet.service';
 export class PetInsertarComponent  implements OnInit{
   form: FormGroup = new FormGroup({}); //! importar
   pet: Pet = new Pet();
-  mensaje: string= ' ';
+  mensaje: string= 'Gaaa';
   maxFecha: Date = moment().add(-1,'days').toDate(); //? usar npm install moment
 
   constructor(private pS: PetService, private router: Router){}
@@ -40,7 +40,7 @@ export class PetInsertarComponent  implements OnInit{
       this.router.navigate(['pets']);
     }
     else {
-      this.mensaje = ' Ingrese el nombre de la mascota completo!';
+      this.mensaje = 'Ingrese el nombre de la mascota completo!';
     }
   }
 }
