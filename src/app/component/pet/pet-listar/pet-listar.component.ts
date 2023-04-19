@@ -17,6 +17,10 @@ export class PetListarComponent implements OnInit {
     this.pS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
     });
+  //! para traer la listab rapido
+    this.pS.getList().subscribe(data=>{
+      this.dataSource= new MatTableDataSource(data);
+    })
   }
 }
 
