@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form [formGroup]="form" (submit)="aceptar()">
+    <!-- SE nbecesita de inputmodule para usar lo siguiente-->
+    <mat-form-field class="example-full-width">
+      <mat-label>Código</mat-label>
+      <input matInput placeholder="Código" formControlName="id" />
+    </mat-form-field>
+
+  <br>
+  <mat-form-field class="example-full-width">
+    <mat-label>Mascota</mat-label>
+    <input matInput placeholder="Nombre máscota" formControlName="namePet" />
+  </mat-form-field>
+  <br>
+
+    <!-- SE nbecesita de matselectmodule para usar lo siguiente-->
+    <mat-form-field appearance="fill">
+      <mat-label>Género</mat-label>
+      <mat-select placeholder="Elija Género" formControlName="genderPet">
+        <mat-option value="Macho">Macho</mat-option>
+        <mat-option value="Hembra">Hembra</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+        <!-- SE nbecesita de MatDatepickerModule para usar lo siguiente-->
+
+    <mat-form-field appearance="fill">
+      <mat-label>Fecha de Nacimiento</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        placeholder="Choose a date"
+        formControlName="birthDatePet"
+        [max]="maxFecha"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+<br>
+<button mat-button color="primary">Aceptar</button>
+<button mat-button color="warn" routerLink="/pets">Cancelar</button>
+      <br> <p>{{ mensaje }}</p>
+
+  </form>
+</body>
+</html>
